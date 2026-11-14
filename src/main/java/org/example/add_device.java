@@ -11,7 +11,11 @@ public class add_device {
 
 
     public add_device(){
-        System.out.println("hello");
+     this.name="null";
+     this.type="null";
+     this.ID="null";
+
+
     }
 
     public void add(ArrayList<add_device> listd){
