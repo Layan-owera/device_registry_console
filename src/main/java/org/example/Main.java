@@ -1,8 +1,9 @@
 
 package org.example;
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class Main {
 
         while (option!=4) {
             System.out.println("Enter the option you want :");
-
+            try{
             option = in.nextInt();
 
             if (option == 1) {
@@ -28,15 +29,26 @@ public class Main {
                 obj1.add(listd);
 
 
-            }
-            if(option==2){
-                AllDevice obj1= new AllDevice();
+            } else if (option == 2) {
+                AllDevice obj1 = new AllDevice();
                 obj1.list(listd);
-            }
-            if(option==3){
-                Search obj1=new Search();
+            } else if (option == 3) {
+                Search obj1 = new Search();
                 obj1.search(listd);
 
+            }
+            else if (option ==4) {
+                System.out.println("You choose exit option");
+            }
+
+
+            else {
+                System.out.println("Please Enter valid option .");
+            }
+        }
+             catch (InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a number.");
+                in.nextLine();
             }
 
         }

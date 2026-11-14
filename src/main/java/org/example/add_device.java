@@ -10,10 +10,9 @@ public class add_device {
     public String name,type,ID;
 
 
-    public add_device(){
-        System.out.println("hello");
-    }
 
+
+    
     public void add(ArrayList<add_device> listd){
 
 
