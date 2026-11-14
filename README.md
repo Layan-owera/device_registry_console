@@ -35,12 +35,14 @@ Result: This ID is already exists.
 
 5. Tried to add a duplicate ID using different letter cases.
 Result: This ID is already exists.
+
 ** Show All Devices
 1. Displayed all registered devices.
 Result: All devices were displayed correctly.
 
 2. Displayed the device list when it was empty.
 Result: There is no device in the list.
+
 ** Search for a Device
 1. Searched for an existing device.
 Result: The device details were displayed.
@@ -53,6 +55,7 @@ Result: The matching device was displayed.
 
 4. Searched when the device list was empty.
 Result: There is no device in the list.
+
 **Menu and Input Handling
 1. Entered an invalid menu option (9).
 Result: Please Enter valid option.
