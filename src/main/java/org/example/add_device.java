@@ -13,37 +13,29 @@ public class add_device {
     public add_device(){
         System.out.println("hello");
     }
-    public void showMenu()
 
-    {
-        System.out.print("Enter the option you want :");
-        System.out.println("1. Add Device");
-        System.out.println("2. Search for Device");
-        System.out.println("3.All Devices");
-        System.out.println("4. Exit");
-    }
     public void add(ArrayList<add_device> listd){
 
 
-        Scanner input = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.print("Enter the name");
-        name = input.nextLine();
+        name = in.nextLine();
         name = name.trim();
         while (name.equals("")) {
 
             System.out.println("Please enter the name correctly the field is empty .");
             System.out.print("Enter the name: ");
-            name = input.nextLine();
+            name = in.nextLine();
             name = name.trim();
         }
         System.out.print("Enter the type");
-        type = input.nextLine();
+        type = in.nextLine();
         type = type.trim();
         while (type.equals("")) {
 
             System.out.println("Please enter the type correctly the field is empty .");
             System.out.print("Enter the type: ");
-            type = input.nextLine();
+            type = in.nextLine();
             type = type.trim();
         }
         boolean WrongType=true;
@@ -57,17 +49,17 @@ public class add_device {
 
             default:
                 System.out.println("The type should only be (RFID,IO,CAMERA) please Enter the type correctly:");
-                type = input.nextLine();
+                type = in.nextLine();
                 type = type.trim();
         }}
         System.out.print("Enter the id");
-        ID = input.nextLine();
+        ID = in.nextLine();
         ID = ID.trim();
         while (ID.equals("")) {
 
             System.out.println("Please enter the id correctly the field is empty .");
             System.out.print("Enter the ID: ");
-            ID = input.nextLine();
+            ID = in.nextLine();
             ID = ID.trim();
         }
         boolean equalID=false;
@@ -82,13 +74,13 @@ do{
     if(equalID){
         System.out.println("This ID is already exict");
         System.out.print("Enter the ID: ");
-        ID = input.nextLine();
+        ID = in.nextLine();
         ID = ID.trim();
         while (ID.equals("")) {
 
             System.out.println("Please enter the id correctly the field is empty .");
             System.out.print("Enter the ID: ");
-            ID = input.nextLine();
+            ID = in.nextLine();
             ID = ID.trim();
         }
     }
