@@ -13,17 +13,18 @@ public class Main {
      ArrayList<add_device> listd=new ArrayList<>();
         Scanner in = new Scanner(System.in);
 /* option user can choose */
-        System.out.println("Enter the option you want :");
-        System.out.println("1. Add device.");
-        System.out.println("2. Show all devices list.");
-        System.out.println("3. Search for device.");
-        System.out.println("4. Exit.");
+
+
 
 
         int option = 0;
 
         while (option!=4) {
             System.out.println("Enter the option you want :");
+            System.out.println("1. Add device.");
+            System.out.println("2. Show all devices list.");
+            System.out.println("3. Search for device.");
+            System.out.println("4. Exit.");
             try{
             option = in.nextInt();
 

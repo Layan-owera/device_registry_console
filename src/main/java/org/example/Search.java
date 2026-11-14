@@ -25,6 +25,16 @@ public class Search {
         System.out.println("Enter the id :");
         id = in.nextLine();
 
+        // Check if the ID is empty
+        while (id.equals("")) {
+
+            System.out.println("Please enter the id correctly the field is empty .");
+            System.out.print("Enter the ID: ");
+            id = in.nextLine();
+            id = id.trim();
+        }
+        boolean equalID=false;
+
         boolean found = false;
         /*loop to compare all list device id with the id that user enter*/
             for (int i = 0; i < listd.size(); i++) {
