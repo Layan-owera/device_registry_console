@@ -84,6 +84,4 @@ mvn clean package
 
 Run the Main class to start the application
 
-Actual Result: The application displays "There is no device in the list".
 
-Status: PASS
