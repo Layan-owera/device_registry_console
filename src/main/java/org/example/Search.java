@@ -9,14 +9,14 @@ public class Search {
 
     public String id;
     public void search(ArrayList<add_device> listd) {
-
-        System.out.println("Search fro yhe device you want by id ");
-        System.out.println("Enter the id :");
-        id = in.nextLine();
         if (listd.size() == 0) {
             System.out.println("There is no device in the list");
             return;
         }
+        System.out.println("Search fro yhe device you want by id ");
+        System.out.println("Enter the id :");
+        id = in.nextLine();
+
         boolean found = false;
 
             for (int i = 0; i < listd.size(); i++) {

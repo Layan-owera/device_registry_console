@@ -5,8 +5,10 @@ import java.util.ArrayList;
 public class AllDevice {
 
     public void list(ArrayList<add_device> listd) {
-
-    System.out.println("hello");
+        if (listd.size() == 0) {
+            System.out.println("There is no device in the list");
+            return;
+        }
     for (int i =0 ;i < listd.size();i++){
         System.out.println("the device number "+i+" is : ");
         System.out.println("Name:"+listd.get(i).name);
