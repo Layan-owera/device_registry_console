@@ -4,12 +4,15 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
 
+/**
+  *Main class to run the device registry application.
+ */
 
 public class Main {
     public static void main(String[] args) {
      ArrayList<add_device> listd=new ArrayList<>();
         Scanner in = new Scanner(System.in);
-
+/* option user can choose */
         System.out.println("Enter the option you want :");
         System.out.println("1. Add device.");
         System.out.println("2. Show all devices list.");
@@ -46,6 +49,7 @@ public class Main {
                 System.out.println("Please Enter valid option .");
             }
         }
+            /*if user enter invaild value */
              catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please enter a number.");
                 in.nextLine();

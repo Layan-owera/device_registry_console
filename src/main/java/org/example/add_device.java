@@ -3,13 +3,18 @@ package org.example;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+/**
+ *Class to Add new device.
+ */
+
 public class add_device {
 
 
 
     public String name,type,ID;
 
-
+/* constructor*/
     public add_device(){
      this.name="null";
      this.type="null";
@@ -17,14 +22,15 @@ public class add_device {
 
 
     }
-
+/*add device methode*/
     public void add(ArrayList<add_device> listd){
 
-
+/* add device name*/
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the name");
         name = in.nextLine();
         name = name.trim();
+        // Check if the name is empty
         while (name.equals("")) {
 
             System.out.println("Please enter the name correctly the field is empty .");
@@ -32,9 +38,11 @@ public class add_device {
             name = in.nextLine();
             name = name.trim();
         }
+        // add device type
         System.out.print("Enter the type");
         type = in.nextLine();
         type = type.trim();
+       // Check if the type is empty
         while (type.equals("")) {
 
             System.out.println("Please enter the type correctly the field is empty .");
@@ -56,9 +64,11 @@ public class add_device {
                 type = in.nextLine();
                 type = type.trim();
         }}
+        /* add device id */
         System.out.print("Enter the id");
         ID = in.nextLine();
         ID = ID.trim();
+        // Check if the ID is empty
         while (ID.equals("")) {
 
             System.out.println("Please enter the id correctly the field is empty .");
@@ -75,6 +85,7 @@ do{
                 break;
             }
 }
+    // Check if the ID already exists
     if(equalID){
         System.out.println("This ID is already exict");
         System.out.print("Enter the ID: ");
