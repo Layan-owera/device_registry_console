@@ -8,13 +8,19 @@ public class Main {
     public static void main(String[] args) {
      ArrayList<add_device> listd=new ArrayList<>();
         Scanner in = new Scanner(System.in);
-        int exit=1;
-        while (exit==1) {
 
-            int option = 0;
+        System.out.println("Enter the option you want :");
+        System.out.println("1. Add device.");
+        System.out.println("2. Show all devices list.");
+        System.out.println("3. Search for device.");
+        System.out.println("4. Exit.");
 
 
-            System.out.println("enter 1");
+        int option = 0;
+
+        while (option!=4) {
+            System.out.println("Enter the option you want :");
+
             option = in.nextInt();
 
             if (option == 1) {
@@ -23,8 +29,11 @@ public class Main {
 
 
             }
-            System.out.println("if you want to exit pree 0");
-            exit=in.nextInt();
+            if(option==2){
+                AllDevice obj1= new AllDevice();
+                obj1.list(listd);
+            }
+
         }
 
 
