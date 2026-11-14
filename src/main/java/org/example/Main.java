@@ -1,17 +1,37 @@
-package org.example;
 
+package org.example;
+import java.util.Scanner;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+     ArrayList<add_device> listd=new ArrayList<>();
+        Scanner in = new Scanner(System.in);
+        int exit=1;
+        while (exit==1) {
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            int option = 0;
+
+
+            System.out.println("enter 1");
+            option = in.nextInt();
+
+            if (option == 1) {
+                add_device obj1 = new add_device();
+                obj1.add(listd);
+
+
+            }
+            System.out.println("if you want to exit pree 0");
+            exit=in.nextInt();
         }
+
+
+
+
+
     }
 }
