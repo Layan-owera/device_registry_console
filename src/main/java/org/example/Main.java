@@ -33,6 +33,11 @@ public class Main {
                 AllDevice obj1= new AllDevice();
                 obj1.list(listd);
             }
+            if(option==3){
+                Search obj1=new Search();
+                obj1.search(listd);
+
+            }
 
         }
 
