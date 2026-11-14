@@ -1,20 +1,20 @@
-device-registry-console a programme
-allows users to manage devices .
+Device Registry Console is a program that allows users to manage devices.
 
-In this application user can :
+In this application, users can:
 
-1.Add device
-2.Search for device
-3.Show All the device 
-4.Exit the application
+Add a device.
 
-Technologies Used :
+Search for a device.
+
+Show all devices.
+
+Exit the application.
+
+Technologies Used
 
 Java 21
 
 Apache Maven
 
 Git and GitHub
-
-IntelliJ IDEA
 
