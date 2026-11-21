@@ -7,38 +7,41 @@ public class DeviceService {
 
     private DeviceRepository repository;
 
-
+    public String finalCheckResult;
 
     public DeviceService(DeviceRepository OR) {
         this.repository = OR;
 
     }
 
-    public  String registerDevice(Device d){
-        String ID = d.getID();
-        String name = d.getName();
-        String type = d.getType();
-        String IdResult,nameResult,TypeResult;
-        IdResult=cheackID(ID);
-        nameResult=cheackName(name);
-        TypeResult=cheackType(type);
+    public  String CheackAll(String ID,String name,String type) {
 
-        if(IdResult.equals("valid")&& nameResult.equals("valid") && TypeResult.equals("valid")){
+        String IdResult, nameResult, TypeResult;
+        nameResult = cheackName(name);
+        IdResult = cheackID(ID);
+        TypeResult = cheackType(type);
 
-            repository.saving(d);
-            return "valid";
-        }
 
-        if(!IdResult.equals("valid") ){
-            return IdResult;
-        }
-        if(!nameResult.equals("valid")){
-            return nameResult;
-        }
-        if(!TypeResult.equals("valid")){
-            return TypeResult ;
-        }
-        return "Invalid";
+
+
+            if (!nameResult.equals("valid")) {
+                return nameResult;
+            }
+
+            if (!TypeResult.equals("valid")) {
+                return TypeResult;
+            }
+            if (!IdResult.equals("valid")) {
+                return IdResult;
+            }
+
+
+        return "Done";
+    }
+    public  void registerDevice(Device d) {
+
+        repository.saving(d);
+
     }
 
     // Check if the ID is empty or Already Exist
@@ -47,12 +50,11 @@ public class DeviceService {
         ID = ID.trim();
 
         if (ID.equals("")){
-            System.out.println("hello");
+
 
             return "EMPTY_ID";
         }
        if(repository.existsById(ID)){
-           System.out.println("hi");
 
             return "EXIST_ID";
         }
