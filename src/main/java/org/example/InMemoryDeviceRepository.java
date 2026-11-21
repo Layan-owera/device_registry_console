@@ -27,11 +27,8 @@ public class InMemoryDeviceRepository  implements DeviceRepository{
     }
 
     @Override
-    public void saving(String name,String type,String ID){
-       Device d=new Device();
-       d.setName(name);
-       d.setType(type);
-       d.setID(ID);
+    public void saving(Device d){
+
     listd.add(d);
     }
 

@@ -14,13 +14,18 @@ public class DeviceService {
 
     }
 
-    public  String registerDevice(String name,String type,String ID){
+    public  String registerDevice(Device d){
+        String ID = d.getID();
+        String name = d.getName();
+        String type = d.getType();
         String IdResult,nameResult,TypeResult;
         IdResult=cheackID(ID);
         nameResult=cheackName(name);
         TypeResult=cheackType(type);
+
         if(IdResult.equals("valid")&& nameResult.equals("valid") && TypeResult.equals("valid")){
-            repository.saving(name,type,ID);
+
+            repository.saving(d);
             return "valid";
         }
 

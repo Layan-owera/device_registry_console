@@ -36,7 +36,7 @@ public class Main {
                 if (option == 1) {
                     String name,type,ID;
                     String result;
-                    Device device = new Device();
+                    Device d=new Device();
                     DeviceService obj1 = new DeviceService(OR);
 
                     do {
@@ -87,7 +87,10 @@ public class Main {
 
 
 // Register Device
-                    result = obj1.registerDevice(name, type, ID);
+                    d.setName(name);
+                    d.setType(type);
+                    d.setID(ID);
+                    result = obj1.registerDevice(d);
 
                     if (result.equals("valid")) {
                         System.out.println("Device registered successfully!");
@@ -122,7 +125,7 @@ public class Main {
                     return ;
                 }
 
-                while (sch.equals("")) {
+                while (sch.isEmpty()) {
 
                     System.out.println("Please enter valid value! the field is empty .");
                     System.out.print("Enter the the value: ");
@@ -138,7 +141,7 @@ public class Main {
                     System.out.println("name: " + result.getName());
                     System.out.println("type: " + result.getType());
                     System.out.println("id: " + result.getID());
-                };
+                }
 
             }
             //Exit
