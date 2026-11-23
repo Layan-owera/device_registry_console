@@ -7,6 +7,6 @@ public interface DeviceRepository {
 
     Device search(String sch);
     ArrayList<Device> Listing();
-    void saving(String name,String type,String ID);
+    void saving(Device d);
     boolean existsById(String ID);
 }

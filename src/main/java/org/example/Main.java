@@ -33,81 +33,89 @@ public class Main {
 
 
                 // Add Device
+
                 if (option == 1) {
-                    String name,type,ID;
+
                     String result;
-                    Device device = new Device();
+                    Device d = new Device();
                     DeviceService obj1 = new DeviceService(OR);
 
-                    do {
-                        System.out.print("Enter the name: ");
-                        name = in.nextLine();
+                    System.out.print("Enter the name: ");
+                    d.setName(in.nextLine());
 
-                        result = obj1.cheackName(name);
+                    System.out.print("Enter the Type (RFID, IO, CAMERA): ");
+                    d.setType(in.nextLine());
+
+                    System.out.print("Enter the ID: ");
+                    d.setID(in.nextLine());
+
+                    do {
+
+                        result = obj1.registerDevice(d);
 
                         if (result.equals("EMPTY_NAME")) {
+
                             System.out.println("Name cannot be empty!");
+                            System.out.print("Enter the name again: ");
+                            d.setName(in.nextLine());
+
                         }
 
-                    } while (!result.equals("valid"));
+                        else if (result.equals("EMPTY_TYPE")) {
 
-
-                        // Type Validation
-                    do {
-                        System.out.print("Enter the Type (RFID, IO, CAMERA): ");
-                        type = in.nextLine();
-
-                        result = obj1.cheackType(type);
-
-                        if (result.equals("EMPTY_TYPE")) {
                             System.out.println("Type cannot be empty!");
+                            System.out.print("Enter the Type again: ");
+                            d.setType(in.nextLine());
+
                         }
+
                         else if (result.equals("INVALID_TYPE")) {
+
                             System.out.println("Invalid type! Please enter RFID, IO, or CAMERA.");
-                        }
+                            System.out.print("Enter the Type again: ");
+                            d.setType(in.nextLine());
 
-                    } while (!result.equals("valid"));
+                        }g
 
+                        else if (result.equals("EMPTY_ID")) {
 
-                        // ID Validation
-                    do {
-                        System.out.print("Enter the ID: ");
-                        ID = in.nextLine();
-
-                        result = obj1.cheackID(ID);
-
-                        if (result.equals("EMPTY_ID")) {
                             System.out.println("ID cannot be empty!");
+                            System.out.print("Enter the ID again: ");
+                            d.setID(in.nextLine());
+
                         }
+
                         else if (result.equals("EXIST_ID")) {
+
                             System.out.println("This ID already exists! Please enter another ID.");
+                            System.out.print("Enter the ID again: ");
+                            d.setID(in.nextLine());
+
                         }
 
-                    } while (!result.equals("valid"));
+                    } while (!result.equals("Done"));
 
 
-// Register Device
-                    result = obj1.registerDevice(name, type, ID);
 
-                    if (result.equals("valid")) {
-                        System.out.println("Device registered successfully!");
-                    }
-
-
-                    }
+                    System.out.println("Device registered successfully!");
+                }
 
             //Show All Devices
             else if (option == 2) {
 
              ArrayList<Device> d=OR.Listing();
+                    if (d.isEmpty()) {
+                        System.out.println("There are no devices in the list.");
+                    } else {
+
                 for (int i=0;i<d.size();i++) {
-                    System.out.println("Device number "+(i+1));
-                    System.out.println("Name is :"+ d.get(i).getName());
+                    System.out.println("Device number " + (i + 1));
+                    System.out.println("Name is :" + d.get(i).getName());
 
-                    System.out.println("Type is :"+d.get(i).getType());
+                    System.out.println("Type is :" + d.get(i).getType());
 
-                    System.out.println("ID is :"+ d.get(i).getID());
-
+                    System.out.println("ID is :" + d.get(i).getID());
+                }
                 }
 
                 //Search
@@ -119,10 +127,10 @@ public class Main {
                 sch = sch.trim();
                 if(OR.Listing().isEmpty()) {
                     System.out.println("There is no device in the list");
-                    return ;
+                    break ;
                 }
 
-                while (sch.equals("")) {
+                while (sch.isEmpty()) {
 
                     System.out.println("Please enter valid value! the field is empty .");
                     System.out.print("Enter the the value: ");
@@ -138,7 +146,7 @@ public class Main {
                     System.out.println("name: " + result.getName());
                     System.out.println("type: " + result.getType());
                     System.out.println("id: " + result.getID());
-                };
+                }
 
             }
             //Exit

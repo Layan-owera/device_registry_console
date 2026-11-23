@@ -14,40 +14,59 @@ public class DeviceService {
 
     }
 
-    public  String registerDevice(String name,String type,String ID){
-        String IdResult,nameResult,TypeResult;
-        IdResult=cheackID(ID);
-        nameResult=cheackName(name);
-        TypeResult=cheackType(type);
-        if(IdResult.equals("valid")&& nameResult.equals("valid") && TypeResult.equals("valid")){
-            repository.saving(name,type,ID);
-            return "valid";
+    private   String CheckAll(String ID,String name,String type) {
+
+        String IdResult, nameResult, TypeResult;
+        nameResult = checkName(name);
+        IdResult = checkID(ID);
+        TypeResult = checkType(type);
+
+
+
+
+            if (!nameResult.equals("valid")) {
+                return nameResult;
+            }
+
+            if (!TypeResult.equals("valid")) {
+                return TypeResult;
+            }
+            if (!IdResult.equals("valid")) {
+                return IdResult;
+            }
+
+
+        return "Done";
+    }
+    public  String registerDevice(Device d) {
+
+
+        String result = CheckAll(
+                d.getID(),
+                d.getName(),
+                d.getType()
+        );
+
+        if (!result.equals("Done")) {
+            return result;
         }
 
-        if(!IdResult.equals("valid") ){
-            return IdResult;
-        }
-        if(!nameResult.equals("valid")){
-            return nameResult;
-        }
-        if(!TypeResult.equals("valid")){
-            return TypeResult ;
-        }
-        return "Invalid";
+        repository.saving(d);
+
+        return "Done";
     }
 
     // Check if the ID is empty or Already Exist
-    public String cheackID(String ID) {
+    public String checkID(String ID) {
 
         ID = ID.trim();
 
-        if (ID.equals("")){
-            System.out.println("hello");
+        if (ID.isEmpty()){
+
 
             return "EMPTY_ID";
         }
        if(repository.existsById(ID)){
-           System.out.println("hi");
 
             return "EXIST_ID";
         }
@@ -57,10 +76,10 @@ public class DeviceService {
 
     }
 
-    public String cheackType(String type) {
+    public String checkType(String type) {
         // Check if the type is empty
         type = type.trim();
-        if (type.equals("")){
+        if (type.isEmpty()){
             return "EMPTY_TYPE";
         }
         if (!type.equalsIgnoreCase("RFID") &&
@@ -73,11 +92,11 @@ public class DeviceService {
         return "valid";
     }
 
-    public String cheackName(String name) {
+    public String checkName(String name) {
 
         // Check if the name is empty
         name = name.trim();
-      if (name.equals("")){
+      if (name.isEmpty()){
 
           return "EMPTY_NAME";
       }
