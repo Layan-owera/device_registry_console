@@ -34,7 +34,7 @@ public class InMemoryDeviceRepository  implements DeviceRepository{
 
     @Override
     public ArrayList<Device> Listing(){
-        return listd;
+        return new ArrayList<>(listd);
     }
     @Override
     public Device search(String sch){
@@ -42,11 +42,11 @@ public class InMemoryDeviceRepository  implements DeviceRepository{
         /*loop to compare all list device id with the id that user enter*/
         for (int i = 0; i < listd.size(); i++) {
             if (listd.get(i).getID().equalsIgnoreCase(sch)) {
-                return listd.get(i);
+                return (listd).get(i);
 
             }
             if (listd.get(i).getName().equalsIgnoreCase(sch)) {
-                return listd.get(i);
+                return (listd).get(i);
             }
 
         }

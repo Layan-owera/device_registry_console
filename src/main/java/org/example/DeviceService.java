@@ -14,7 +14,7 @@ public class DeviceService {
 
     }
 
-    public  String CheckAll(String ID,String name,String type) {
+    private   String CheckAll(String ID,String name,String type) {
 
         String IdResult, nameResult, TypeResult;
         nameResult = checkName(name);

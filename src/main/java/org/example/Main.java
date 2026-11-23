@@ -75,7 +75,7 @@ public class Main {
                             System.out.print("Enter the Type again: ");
                             d.setType(in.nextLine());
 
-                        }
+                        }g
 
                         else if (result.equals("EMPTY_ID")) {
 
