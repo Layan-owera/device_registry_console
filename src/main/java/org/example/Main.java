@@ -51,7 +51,7 @@ public class Main {
 
                     do {
 
-                        result = obj1.CheackAll(d.getID(),d.getName(), d.getType());
+                        result = obj1.registerDevice(d);
 
                         if (result.equals("EMPTY_NAME")) {
 
@@ -95,7 +95,7 @@ public class Main {
 
                     } while (!result.equals("Done"));
 
-                    obj1.registerDevice(d);
+
 
                     System.out.println("Device registered successfully!");
                 }

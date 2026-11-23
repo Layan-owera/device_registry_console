@@ -14,12 +14,12 @@ public class DeviceService {
 
     }
 
-    public  String CheackAll(String ID,String name,String type) {
+    public  String CheckAll(String ID,String name,String type) {
 
         String IdResult, nameResult, TypeResult;
-        nameResult = cheackName(name);
-        IdResult = cheackID(ID);
-        TypeResult = cheackType(type);
+        nameResult = checkName(name);
+        IdResult = checkID(ID);
+        TypeResult = checkType(type);
 
 
 
@@ -38,14 +38,26 @@ public class DeviceService {
 
         return "Done";
     }
-    public  void registerDevice(Device d) {
+    public  String registerDevice(Device d) {
+
+
+        String result = CheckAll(
+                d.getID(),
+                d.getName(),
+                d.getType()
+        );
+
+        if (!result.equals("Done")) {
+            return result;
+        }
 
         repository.saving(d);
 
+        return "Done";
     }
 
     // Check if the ID is empty or Already Exist
-    public String cheackID(String ID) {
+    public String checkID(String ID) {
 
         ID = ID.trim();
 
@@ -64,7 +76,7 @@ public class DeviceService {
 
     }
 
-    public String cheackType(String type) {
+    public String checkType(String type) {
         // Check if the type is empty
         type = type.trim();
         if (type.isEmpty()){
@@ -80,7 +92,7 @@ public class DeviceService {
         return "valid";
     }
 
-    public String cheackName(String name) {
+    public String checkName(String name) {
 
         // Check if the name is empty
         name = name.trim();
