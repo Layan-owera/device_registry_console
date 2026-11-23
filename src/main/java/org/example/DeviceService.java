@@ -7,7 +7,7 @@ public class DeviceService {
 
     private DeviceRepository repository;
 
-    public String finalCheckResult;
+
 
     public DeviceService(DeviceRepository OR) {
         this.repository = OR;
@@ -49,7 +49,7 @@ public class DeviceService {
 
         ID = ID.trim();
 
-        if (ID.equals("")){
+        if (ID.isEmpty()){
 
 
             return "EMPTY_ID";
@@ -67,7 +67,7 @@ public class DeviceService {
     public String cheackType(String type) {
         // Check if the type is empty
         type = type.trim();
-        if (type.equals("")){
+        if (type.isEmpty()){
             return "EMPTY_TYPE";
         }
         if (!type.equalsIgnoreCase("RFID") &&
@@ -84,7 +84,7 @@ public class DeviceService {
 
         // Check if the name is empty
         name = name.trim();
-      if (name.equals("")){
+      if (name.isEmpty()){
 
           return "EMPTY_NAME";
       }
